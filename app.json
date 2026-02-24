@@ -3,6 +3,7 @@
     "name": "RNZas",
     "slug": "RNZas",
     "version": "1.0.0",
+    "scheme": "shopfolio",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

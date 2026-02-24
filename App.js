@@ -1,20 +1,24 @@
+// App.js
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { AuthProvider } from './src/context/AuthContext';
+import AppNavigator from './src/navigation/AppNavigator';
+import { useCart } from './src/context/CartContext';
 
 export default function App() {
+  const { initializeCart } = useCart();
+  
+  // Cargar carrito guardado al iniciar
+  useEffect(() => {
+    initializeCart();
+  }, [initializeCart]);
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar style="dark" />
+      <AuthProvider>
+        <AppNavigator />
+      </AuthProvider>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
